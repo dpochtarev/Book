@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Data Source" product="PostgreSQL" version="9.3.1" jdbc-version="4.0" driver-version="PostgreSQL 9.3 JDBC4 (build 1100)" uuid="10434e12-99b5-4c17-9bf9-479139de2174">
+    <identifier-quote-string>"</identifier-quote-string>
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1:5432/user</jdbc-url>
+    <user-name>postgres</user-name>
+    <user-password>dfdadfc5dfd9dfdedfcddfd8dfcfdfd9</user-password>
+    <schema-pattern>*.public</schema-pattern>
+    <default-schemas>*.public</default-schemas>
+    <libraries>
+      <library>
+        <url>jar://$PROJECT_DIR$/web/WEB-INF/lib/postgresql-9.3-1100.jdbc4.jar!/</url>
+      </library>
+      <library>
+        <url>file://$PROJECT_DIR$/web/WEB-INF/lib/postgresql-driver-license.txt</url>
+      </library>
+    </libraries>
+    <table name="gr_user" schema="public" catalog="" type="TABLE">
+      <column name="user_name" sqlType="varchar" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="user_phone" sqlType="varchar" length="50" precision="0" nullable="true" jdbcType="12" />
+      <column name="user_address" sqlType="varchar" length="50" precision="0" nullable="true" jdbcType="12" />
+      <column name="user_id" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="user_id" columns="user_id" />
+    </table>
+    <table name="user_id" schema="public" catalog="" type="INDEX">
+      <column name="user_id" sqlType="int4" length="10" precision="0" nullable="true" jdbcType="4" />
+    </table>
+  </data-source>
+</component>

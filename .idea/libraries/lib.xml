@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/com.springsource.javax.jms-1.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/com.springsource.org.apache.commons.collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/com.springsource.org.apache.log4j-1.2.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-collections4-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/ejb3-persistence-3.3.2.Beta1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/el-api-2.1.2-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/hibernate3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/hsqldb-2.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/javassist-3.9.0.GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/javax.persistence-2.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/postgresql-9.3-1100.jdbc4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/servlet-api-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/slf4j-api-1.7.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/slf4j-log4j12-1.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/slf4j-simple-1.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
