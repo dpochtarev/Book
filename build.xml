@@ -7,9 +7,15 @@
         </fileset>
     </path>
 
+
+
     <target name="init">
         <mkdir dir="build/classes"/>
         <mkdir dir="dist" />
+        <copy todir="build/classes">
+            <fileset dir="src/main/resources" />
+        </copy>
+
     </target>
 
     <target name="compile" depends="init" >
@@ -23,8 +29,12 @@
             <fileset dir="web"/>
             <lib dir="web/WEB-INF/lib"/>
             <classes dir="build/classes"/>
+            <include name="**/*.xml"/>
         </war>
     </target>
+
+
+
 
     <target name="clean">
         <delete dir="dist" />

@@ -8,22 +8,31 @@
 
     <servlet>
         <servlet-name>Handler</servlet-name>
-        <servlet-class>book.Handler</servlet-class>
+        <servlet-class>servlets.Handler</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Handler</servlet-name>
-        <url-pattern>/Handler</url-pattern>
+        <url-pattern>/Handler.do</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>Editor</servlet-name>
-        <servlet-class>book.Editor</servlet-class>
+        <servlet-class>servlets.Editor</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Editor</servlet-name>
-        <url-pattern>/Editor</url-pattern>
+        <url-pattern>/Editor.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>one</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>one</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

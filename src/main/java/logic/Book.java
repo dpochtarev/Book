@@ -1,11 +1,8 @@
 package logic;
 import DAO.Impl.UserDAOImpl;
 import DAO.UserDAO;
-import main.resources.User;
+import book.User;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -44,8 +41,23 @@ public class Book {
            e.printStackTrace();
        }
       return list;
-
    }
+
+   public static String getTable(List<User> list){
+        
+    String table = null;
+       if(list!=null) {
+           table="<table border=\"1\"> <font SIZE=\"12\"><tr><td>Name</td><td>Phone</td><td>Address</td></tr></font>";
+           for(User user:list){
+               table = table +("<tr><td>" +user.getName()+"</td><td>"+user.getPhone()+"</td><td>"+user.getAddress()+"</td></tr>");
+           }
+          table = table+"</table>";
+       }
+       
+        return table;
+    }   
+       
+
 
 
 

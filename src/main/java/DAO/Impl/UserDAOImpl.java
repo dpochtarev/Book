@@ -2,11 +2,10 @@ package DAO.Impl;
 
 
 import DAO.UserDAO;
-import main.resources.User;
+import book.User;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
-import java.util.Collection;
 import java.util.ArrayList;
 import java.util.List;
 

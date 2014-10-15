@@ -5,11 +5,12 @@
 <hibernate-configuration>
 
     <session-factory>
-        <property name="connection.url">jdbc:postgresql://127.0.0.1:5432/user</property>
-        <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.username">postgres</property>
-        <property name="connection.password">postgres</property>
+        <property name="connection.url">jdbc:hsqldb:file:hsqldb/db</property>
+        <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
         <property name="hibernate.show_sql">true</property>
-        <mapping resource="main/resources/User.xbm.xml"/>
+        <property name="hbm2ddl.auto">update</property>
+        <mapping resource="User.xbm.xml"/>
     </session-factory>
 </hibernate-configuration>
