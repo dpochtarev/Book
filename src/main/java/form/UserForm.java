@@ -1,9 +1,6 @@
 package form;
 
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-
-import javax.servlet.ServletRequest;
 
 
 public class UserForm extends ActionForm{
@@ -36,8 +33,5 @@ public class UserForm extends ActionForm{
         this.phone = phone;
     }
 
-    public void reset(ActionMapping mapping, ServletRequest request) {
-
-    }
 
     }

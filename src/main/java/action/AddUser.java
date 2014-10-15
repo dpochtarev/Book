@@ -24,7 +24,7 @@ public class AddUser extends Action {
         String phone = userForm.getPhone();
         String address = userForm.getAddress();
 
-        if(!name.equals("") && !name.equals(null)) {
+        if(!"".equals(name)  && name!=null) {
             // Записываю юзера в базу.
             User user = new User(name, phone, address);
             try{
@@ -32,7 +32,6 @@ public class AddUser extends Action {
             }catch (SQLException e) {
                 e.printStackTrace();
             }   }
-        request.setAttribute("List", Book.getTable(Book.getList()));
 
          form.reset(mapping, request);
 
