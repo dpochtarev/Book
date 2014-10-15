@@ -1,1 +1,4 @@
-My first web application. 
+Phonebook web application.
+type 
+ant war
+to build project.
