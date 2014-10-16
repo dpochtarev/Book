@@ -33,7 +33,7 @@ public class AddUser extends Action {
                 e.printStackTrace();
             }   }
 
-         form.reset(mapping, request);
+        userForm.resetform();
 
         return mapping.findForward("success");
     }

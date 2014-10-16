@@ -12,7 +12,7 @@
   </head>
   <body>
 
-    <%String list =(String)request.getAttribute("List");
+    <%List<User> list = (List<User>)request.getAttribute("List");
     System.out.println("Список " + list);%>
 
 
@@ -25,7 +25,7 @@
           <tr><td>    Enter phone number </td><td><html:text size="26" name="UserForm" property="phone" />      </td></tr>
           <tr><td>   Enter user address </td><td> <html:text size="26" name="UserForm" property="address" />  </td></tr>
 
-          <tr><th colspan="2">   <html:submit style="width:100%" value="Add new user" /> </th></tr>
+          <tr><th colspan="2">   <html:submit style="width:100%" value="Submit" /> </th></tr>
       </table>
 
   </tr>  <tr>  <td>
@@ -34,8 +34,14 @@
 
        </td> </tr>
          <tr> <td>
-         <%=list%>
-
+             <tr><td>User Name</td><td>Phone</td><td>Address</td></tr>
+         <%--<%=list%>--%>
+         <%for(User user:list) {   %>
+         <tr><td><%=user.getName()%></td> <td><%=user.getPhone()%></td> <td><%=user.getAddress()%></td> <td>
+               <%String link = "http://localhost:8080/findUser.do?id=" + user.getId(); %>
+               <a href=<%=link%>> Edit </a></td>
+           </tr>    
+          <%} %>
          </td></tr>
        </table>
   </body>

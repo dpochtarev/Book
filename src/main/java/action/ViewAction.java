@@ -14,7 +14,7 @@ public class ViewAction extends Action {
     
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
 
-        request.setAttribute("List", Book.getTable(Book.getList()));
+        request.setAttribute("List", (Book.getList()));
 
         return mapping.findForward("success");
     }

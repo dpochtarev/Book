@@ -33,5 +33,11 @@ public class UserForm extends ActionForm{
         this.phone = phone;
     }
 
+    public void resetform() {
+
+        setName(null);
+        setAddress(null);
+        setPhone(null);
+    }
 
     }

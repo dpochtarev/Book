@@ -24,6 +24,14 @@
             <forward name="success" path="/index.jsp" />
 
         </action>
+
+        <action path="/findUser"
+                type="action.FIndUser"
+                cancellable="true">
+            <forward name="success" path="/index.jsp" />
+
+        </action>
+
     </action-mappings>
 
 </struts-config>
