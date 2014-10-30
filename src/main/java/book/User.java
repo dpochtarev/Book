@@ -1,8 +1,4 @@
 package book;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
-
 
 public class User {
     
@@ -52,5 +48,12 @@ public class User {
         this.address = address;
     }
 
+    public User(String name, String phone, String address, Long id){
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.id = id;
+    }
 
+    
 }

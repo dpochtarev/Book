@@ -8,6 +8,7 @@ public class UserForm extends ActionForm{
     String name;
     String address;
     String phone;
+    Long id;
 
     public String getName() {
         return name;
@@ -17,6 +18,14 @@ public class UserForm extends ActionForm{
         this.name = name;
     }
 
+    public Long getId(){
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+        
     public String getAddress() {
         return address;
     }
@@ -38,6 +47,7 @@ public class UserForm extends ActionForm{
         setName(null);
         setAddress(null);
         setPhone(null);
+        setId(0l);
        }
 
     }

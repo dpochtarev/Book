@@ -17,35 +17,23 @@ public class FIndUser extends Action {
                                  HttpServletRequest request,HttpServletResponse response)
             throws Exception {
 
-//        UserForm userForm =(UserForm) form;
-//        String name = userForm.getName();
-//        String phone = userForm.getPhone();
-//        String address = userForm.getAddress();
-//
-//        Collection users = Book.getInstance().getUserDAO().getAllUsers();
-//        Iterator iterator = users.iterator();
-//        while (iterator.hasNext())  {
-//            User usr = (User)iterator.next();
-//            if(usr.getName().equals(name) && usr.getAddress().equals(address) && usr.getPhone().equals(phone)) usr.getId();
-//        }
-//        request.setAttribute("List", Book.getTable(Book.getList()));
 
         Long id = Long.valueOf(request.getParameter("id"));
-        System.out.println(id);
+        boolean edit = Boolean.valueOf(request.getParameter("edit"));
         User user = Book.getInstance().getUserDAO().getUserById(id);
-        System.out.println("user " +  user);
-        System.out.println( "username " + user.getName());
-        UserForm userForm = new UserForm();
-        System.out.println("userform " + userForm);
-        userForm.setName(user.getName());
-        userForm.setPhone(user.getPhone());
-        userForm.setAddress(user.getAddress());
-        System.out.println("userform " + userForm);
-
-        request.setAttribute("List", (Book.getList()));
 
 
+        if(edit){
 
+            ((UserForm)form).setName(user.getName());
+            ((UserForm)form).setPhone(user.getPhone());
+            ((UserForm)form).setAddress(user.getAddress());
+            ((UserForm)form).setId(user.getId());
+        }
+        else{
+            Book.getInstance().getUserDAO().deleteUser(user);
+            ((UserForm)form).resetform();
+        }
         return mapping.findForward("success");
     }
 

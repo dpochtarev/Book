@@ -19,13 +19,22 @@ public class AddUser extends Action {
                                  HttpServletRequest request,HttpServletResponse response)
             throws Exception {
 
-        
-        if(form!=null)   {
         UserForm userForm =(UserForm) form;
         String name = userForm.getName();
         String phone = userForm.getPhone();
         String address = userForm.getAddress();
+        Long id = userForm.getId();
+            System.out.println(id);
 
+        if(id==0l) addUser(name, phone, address);
+            else editUser(name, phone, address, id);
+        userForm.resetform();
+
+
+        return mapping.findForward("success");
+    }
+
+    public void addUser(String name, String phone, String address) {
         if(!"".equals(name)  && name!=null) {
             // Записываю юзера в базу.
             User user = new User(name, phone, address);
@@ -34,16 +43,18 @@ public class AddUser extends Action {
             }catch (SQLException e) {
                 e.printStackTrace();
             }   }
-
-        userForm.resetform();
-        }
-
-
-
-
-
-        return mapping.findForward("success");
     }
+    public void editUser(String name, String phone, String address, Long id) {
+        if(!"".equals(name)  && name!=null) {
+            // Записываю изменения в базу.
+            User user = new User(name, phone, address, id);
+            try{
+                Book.getInstance().getUserDAO().updateUser(id, user);
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }   }
+    }
+
 
 
 }
