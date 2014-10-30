@@ -8,7 +8,12 @@
     <form-beans>
         <form-bean name="UserForm"
                    type="form.UserForm"/>
+
+        <form-bean name="SearchForm"
+                   type="form.SearchForm"/>
     </form-beans>
+
+
 
     <action-mappings>
         <action path="/addUser"
@@ -20,7 +25,7 @@
         </action>
         <action path="/viewAction"
                 type="action.ViewAction"
-                name="UserForm"
+                name="SearchForm"
                 cancellable="true">
             <forward name="success" path="/index.jsp" />
 

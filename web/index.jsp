@@ -13,8 +13,7 @@
   <body>
 
     <%List<User> list = (List<User>)request.getAttribute("List");
-    System.out.println("Список " + list);
-      %>
+    System.out.println("Список " + list); %>
 
 
        <table align="center">   <tr>
@@ -27,6 +26,13 @@
           <tr><td>   Enter user address </td><td> <html:text size="26" name="UserForm" property="address" />  </td></tr>
           <tr><th colspan="2"> <html:submit style="width:100%" value="Submit" /> </th></tr>
           </html:form>
+          <html:form action="/viewAction">
+              <tr><td>Enter user name</td><td><html:text size="26" name="SearchForm"  property="str"/></td></tr>
+              <tr><th colspan="2"> <html:submit style="width:100%" value="Search" /> </th></tr>
+
+          </html:form>
+          
+          
       </table>  </tr>
 
 
@@ -42,13 +48,14 @@
              for(User user:list) {   %>
          <tr>
              <td>
-                 <%String link = "http://localhost:8080/findUser.do?id=" + user.getId() + "&edit=true";%>
+
+                 <% String link = request.getContextPath() + "/findUser.do?id=" + user.getId() + "&edit=true";%>
                  <a href=<%=link%>>
                  <%=user.getName()%>
                  </a></td>
              <td><%=user.getPhone()%></td>
              <td><%=user.getAddress()%></td>
-             <td><%String linkdel = "http://localhost:8080/findUser.do?id=" + user.getId() + "&edit=false";%>
+             <td><%String linkdel = request.getContextPath() + "/findUser.do?id=" + user.getId() + "&edit=false";%>
                <a href=<%=linkdel%>> remove </a></td>
            </tr>    
           <%}} %>

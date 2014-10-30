@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Book:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Book_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Book" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="hibernate3" />
+          <element id="library" level="project" name="ejb3-persistence-3.3.2.Beta1" />
+          <element id="library" level="project" name="org.slf4j:slf4j-simple:1.7.3" />
+          <element id="library" level="project" name="org.eclipse.persistence:javax.persistence:2.1.0" />
+          <element id="library" level="project" name="org.apache.commons:com.springsource.org.apache.commons.collections:3.2.1" />
+          <element id="library" level="project" name="javassist:javassist:3.9.0.GA" />
+          <element id="library" level="project" name="org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final" />
+          <element id="library" level="project" name="postgresql-9.3-1100.jdbc4" />
+          <element id="library" level="project" name="javax.transaction:javax.transaction-api:1.2" />
+          <element id="library" level="project" name="apache-struts:struts:1.2.6" />
+          <element id="library" level="project" name="struts-struts" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Book/web/Web" />
+    </root>
+  </artifact>
+</component>

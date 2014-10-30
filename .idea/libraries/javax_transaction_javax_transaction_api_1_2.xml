@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="javax.transaction:javax.transaction-api:1.2" type="repository">
+    <properties maven-id="javax.transaction:javax.transaction-api:1.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/javax.transaction-api-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/cdi-api-1.0-SP4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jsr250-api-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/javax.inject-1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
