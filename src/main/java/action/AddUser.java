@@ -28,8 +28,8 @@ public class AddUser extends Action {
 
         if(id==0l) addUser(name, phone, address);
             else editUser(name, phone, address, id);
-        userForm.resetform();
 
+        userForm.resetform();
 
         return mapping.findForward("success");
     }

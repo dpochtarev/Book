@@ -21,18 +21,18 @@ public class FIndUser extends Action {
         Long id = Long.valueOf(request.getParameter("id"));
         boolean edit = Boolean.valueOf(request.getParameter("edit"));
         User user = Book.getInstance().getUserDAO().getUserById(id);
-
-
+        UserForm userForm = (UserForm)form;
+        System.out.println(userForm);
         if(edit){
 
-            ((UserForm)form).setName(user.getName());
-            ((UserForm)form).setPhone(user.getPhone());
-            ((UserForm)form).setAddress(user.getAddress());
-            ((UserForm)form).setId(user.getId());
+            userForm.setName(user.getName());
+            userForm.setPhone(user.getPhone());
+            userForm.setAddress(user.getAddress());
+            userForm.setId(user.getId());
         }
         else{
             Book.getInstance().getUserDAO().deleteUser(user);
-            ((UserForm)form).resetform();
+            userForm.resetform();
         }
         return mapping.findForward("success");
     }

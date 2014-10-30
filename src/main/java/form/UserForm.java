@@ -18,6 +18,16 @@ public class UserForm extends ActionForm{
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "UserForm{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     public Long getId(){
         return id;
     }
