@@ -33,15 +33,18 @@ public class FIndUser extends Action {
         Long id = Long.valueOf(request.getParameter("id"));
         System.out.println(id);
         User user = Book.getInstance().getUserDAO().getUserById(id);
-        System.out.println(user);
-        System.out.println(user.getName());
+        System.out.println("user " +  user);
+        System.out.println( "username " + user.getName());
         UserForm userForm = new UserForm();
-        System.out.println(userForm);
+        System.out.println("userform " + userForm);
         userForm.setName(user.getName());
         userForm.setPhone(user.getPhone());
         userForm.setAddress(user.getAddress());
+        System.out.println("userform " + userForm);
 
         request.setAttribute("List", (Book.getList()));
+
+
 
         return mapping.findForward("success");
     }

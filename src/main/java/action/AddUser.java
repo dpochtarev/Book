@@ -19,6 +19,8 @@ public class AddUser extends Action {
                                  HttpServletRequest request,HttpServletResponse response)
             throws Exception {
 
+        
+        if(form!=null)   {
         UserForm userForm =(UserForm) form;
         String name = userForm.getName();
         String phone = userForm.getPhone();
@@ -34,6 +36,11 @@ public class AddUser extends Action {
             }   }
 
         userForm.resetform();
+        }
+
+
+
+
 
         return mapping.findForward("success");
     }

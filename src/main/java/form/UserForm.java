@@ -38,6 +38,6 @@ public class UserForm extends ActionForm{
         setName(null);
         setAddress(null);
         setPhone(null);
-    }
+       }
 
     }

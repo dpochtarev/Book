@@ -24,13 +24,19 @@
         <url-pattern>/Editor.do</url-pattern>
     </servlet-mapping>
 
+
     <servlet>
-        <servlet-name>one</servlet-name>
+        <servlet-name>action</servlet-name>
         <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>one</servlet-name>
+        <servlet-name>action</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 

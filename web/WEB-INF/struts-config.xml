@@ -28,7 +28,7 @@
         <action path="/findUser"
                 type="action.FIndUser"
                 cancellable="true">
-            <forward name="success" path="/index.jsp" />
+            <forward name="success" path="/viewAction.do" />
 
         </action>
 
