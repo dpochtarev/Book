@@ -3,6 +3,7 @@ package DAO.Impl;
 
 import DAO.UserDAO;
 import book.User;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -98,5 +99,26 @@ public class UserDAOImpl implements UserDAO{
         }
     }
 
+    public List<User> searchUsers(String param) throws SQLException {
+        Session session = null;
+        List<User> list = new ArrayList<>();
+        try{
+            session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from User where name like '%" +param+ "%' or phone like '%" +param+ "%' or address like '%" +param+ "%'");
+            list = query.list();
+
+
+        }   catch (Exception e) {e.printStackTrace();}
+
+        finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+            return list;
+    }
+    
+    
+    
 
 }

@@ -23,12 +23,13 @@ public class ViewAction extends Action {
             String str = searchForm.getStr();
         System.out.println(searchForm);
         if(str!=null && !"".equals(str)) {
-            List<User> list = new ArrayList<User>();
-           for(User usr:Book.getList()) {
-              if(usr.getName().contains(str) || usr.getAddress().contains(str) || usr.getPhone().contains(str))  list.add(usr);
-           }
+
+            try{
+            List<User> list = Book.getInstance().getUserDAO().searchUsers(str);
             request.setAttribute("List", list);
             searchForm.resetForm();
+            } catch (Exception e) {e.printStackTrace();}
+
         }  else {
             
         request.setAttribute("List", (Book.getList()));

@@ -49,17 +49,12 @@ public class Book {
        if(list!=null) {
            table="<table border=\"1\"> <font SIZE=\"12\"><tr><td>Name</td><td>Phone</td><td>Address</td></tr></font>";
            for(User user:list){
-               table = table +("<tr><td>" +user.getName()+"</td><td>"+user.getPhone()+"</td><td>"+user.getAddress()+"</td></tr>");
+               table = String.format("%s<tr><td>%s</td><td>%s</td><td>%s</td></tr>", table, user.getName(), user.getPhone(), user.getAddress());
            }
-          table = table+"</table>";
+          table = String.format("%s</table>", table);
        }
        
         return table;
     }   
-       
-
-
-
-
 
 }

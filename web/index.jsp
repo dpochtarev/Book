@@ -49,14 +49,14 @@
          <tr>
              <td>
 
-                 <% String link = request.getContextPath() + "/findUser.do?id=" + user.getId() + "&edit=true";%>
+                 <% String link = request.getContextPath() + "/editUser.do?id=" + user.getId() + "&edit=true";%>
                  <a href=<%=link%>>
                  <%=user.getName()%>
                  </a></td>
              <td><%=user.getPhone()%></td>
              <td><%=user.getAddress()%></td>
-             <td><%String linkdel = request.getContextPath() + "/findUser.do?id=" + user.getId() + "&edit=false";%>
-               <a href=<%=linkdel%>> remove </a></td>
+             <td><%String linkdel = request.getContextPath() + "/editUser.do?id=" + user.getId() + "&edit=false";%>
+               <a href=<%=linkdel%>> <img src="<%=request.getContextPath()%>/delete.png" width="15" height="15"> </a></td>
            </tr>    
           <%}} %>
          </tr>

@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class FIndUser extends Action {
+public class EditUser extends Action {
     public ActionForward execute(ActionMapping mapping,ActionForm form,
                                  HttpServletRequest request,HttpServletResponse response)
             throws Exception {

@@ -31,8 +31,8 @@
 
         </action>
 
-        <action path="/findUser"
-                type="action.FIndUser"
+        <action path="/editUser"
+                type="action.EditUser"
                 name="UserForm"
                 cancellable="true">
             <forward name="success" path="/viewAction.do" />
