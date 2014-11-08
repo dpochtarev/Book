@@ -21,7 +21,6 @@ public class ViewAction extends Action {
         if(form!=null)  {
         SearchForm searchForm = (SearchForm)form;
             String str = searchForm.getStr();
-        System.out.println(searchForm);
         if(str!=null && !"".equals(str)) {
 
             try{

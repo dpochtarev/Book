@@ -22,7 +22,6 @@ public class EditUser extends Action {
         boolean edit = Boolean.valueOf(request.getParameter("edit"));
         User user = Book.getInstance().getUserDAO().getUserById(id);
         UserForm userForm = (UserForm)form;
-        System.out.println(userForm);
         if(edit){
 
             userForm.setName(user.getName());

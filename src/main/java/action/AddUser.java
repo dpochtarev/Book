@@ -19,12 +19,19 @@ public class AddUser extends Action {
                                  HttpServletRequest request,HttpServletResponse response)
             throws Exception {
 
+//        UserForm userForm =(UserForm) form;
+//        String name = userForm.getName();
+//        String phone = userForm.getPhone();
+//        String address = userForm.getAddress();
+//        Long id = userForm.getId();
+
         UserForm userForm =(UserForm) form;
-        String name = userForm.getName();
-        String phone = userForm.getPhone();
-        String address = userForm.getAddress();
-        Long id = userForm.getId();
-            System.out.println(id);
+        String name = (String)request.getAttribute("name");
+        String phone = (String)request.getAttribute("phone");
+        String address = (String)request.getAttribute("address");
+        Long id = 0l;
+
+        System.out.printf("name :%s phone :%s address :%s", name, phone, address);
 
         if(id==0l) addUser(name, phone, address);
             else editUser(name, phone, address, id);
