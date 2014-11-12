@@ -9,8 +9,6 @@ public class JdbcHandler {
    static String driver = "org.hsqldb.jdbcDriver";
 
 
-
-    
     public static Connection getConnection(){
 
 //               Регистрирум драйвер
@@ -22,8 +20,7 @@ public class JdbcHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
+
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException e) {
@@ -33,16 +30,12 @@ public class JdbcHandler {
         }
 
 //            Проверяем коннект
-
         try  {
             c = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             System.err.println("Connection refused");
             e.printStackTrace();
         }
-
-        
-        
         return c;
     }
 
@@ -50,20 +43,17 @@ public class JdbcHandler {
     public static void createDb(){
 
         Connection c = null;
-
         try{
             Class.forName(driver);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         try{
             c = DriverManager.getConnection(url, user, password);
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-
 
         boolean check=true;
 

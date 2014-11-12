@@ -10,21 +10,21 @@
 <html>
   <head>
     <title>Справочник</title>
-      <script type="text/javascript" src="WEB-INF/prototype.js" />
+      <script type="text/javascript" src="prototype.js" />
+
           <script type="text/javascript" >
 
-                  function submitForm() {
               try {
-                  var url = '${contextPath}/addUser.do?method=submitForm';
-                  var params = { text: $F('id'), text: $F('name'), text: $F('address'), text: $F('phone')};
-                  new Ajax.Updater(url, {method: 'post', parameters: params});
-              } catch(error) {alert(error)}
-          }
+                  function postData() {
+                      var url = '${contextPath}/ajaxAction.do?method=postData';
+                      var params = { text: $F['id'], text: $F['name'], text: $F['address'], text: $F['phone']};
+                      new Ajax.Updater('usr', url, {method: 'post', parameters: params});
 
-          function showTestRegExpDialog() {
-              $('regexp').value = $F("keywords");
-//              YAHOO.trackstudio.bookmark.dialog_test_reg_exp.show();
-          }
+                  }
+              }
+              catch(error) {alert(error)}
+
+
       </script>
 
 
@@ -45,8 +45,9 @@
           <tr><td>   Enter user address </td><td> <html:text styleId="address" size="26" name="UserForm" property="address" />  </td></tr>
           <tr><th colspan="2">
                   <%--<html:submit style="width:100%" value="Submit" />--%>
-                      <input type="button" value="Add User" onclick="submitForm()">
+
                       </html:form>
+                      <button onclick="postData()">Submit</button>
           <html:form styleId="2"  action="/viewAction">
               <tr><td>Enter user name</td><td><html:text size="26" name="SearchForm"  property="str"/></td></tr>
               <tr><th colspan="2"> <html:submit style="width:100%" value="Search" /> </th></tr>

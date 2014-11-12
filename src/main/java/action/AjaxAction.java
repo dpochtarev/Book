@@ -13,36 +13,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
-public class AddUser extends Action {
+public class AjaxAction extends Action {
 
     public ActionForward execute(ActionMapping mapping,ActionForm form,
                                  HttpServletRequest request,HttpServletResponse response)
             throws Exception {
 
-//        UserForm userForm =(UserForm) form;
-//        String name = userForm.getName();
-//        String phone = userForm.getPhone();
-//        String address = userForm.getAddress();
-//        Long id = userForm.getId();
+        UserForm userForm =(UserForm) form;
 
-//        UserForm userForm =(UserForm) form;
-//
-//
-//
-//        String name = request.getParameter("name");
-//        String phone = request.getParameter("phone");
-//        String address = request.getParameter("address");
-//        Long id = Long.valueOf(request.getParameter("id"));
-//
-//        System.out.printf("id : %s name :%s phone :%s address :%s", id, name, phone, address);
-//
-//        if(id==0l) addUser(name, phone, address);
-//            else editUser(name, phone, address, id);
-//
-//        userForm.resetform();
 
-        return mapping.findForward("success");
+
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        Long id = Long.valueOf(request.getParameter("id"));
+
+        System.out.printf("id : %s name :%s phone :%s address :%s\n", id, name, phone, address);
+
+        if(id==0l) addUser(name, phone, address);
+        else editUser(name, phone, address, id);
+
+        userForm.resetform();
+
+     return null;
     }
+
 
     public void addUser(String name, String phone, String address) {
         if(!"".equals(name)  && name!=null) {
@@ -64,7 +59,4 @@ public class AddUser extends Action {
                 e.printStackTrace();
             }   }
     }
-
-
-
 }

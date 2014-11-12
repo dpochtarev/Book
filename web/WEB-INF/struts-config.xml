@@ -28,7 +28,12 @@
                 name="SearchForm"
                 cancellable="true">
             <forward name="success" path="/index.jsp" />
+        </action>
 
+        <action path="/ajaxAction"
+                name="UserForm"
+                input="index.jsp"
+                type="action.AjaxAction">
         </action>
 
         <action path="/editUser"
