@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 public class AjaxAction extends Action {
@@ -21,12 +22,11 @@ public class AjaxAction extends Action {
 
         UserForm userForm =(UserForm) form;
 
-
-
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        Long id = Long.valueOf(request.getParameter("id"));
+        Long id=0l;
+        String name = userForm.getName();
+        String phone = userForm.getPhone();
+        String address = userForm.getAddress();
+        if(userForm.getId()!=null)    id = Long.valueOf(userForm.getId());
 
         System.out.printf("id : %s name :%s phone :%s address :%s\n", id, name, phone, address);
 
@@ -35,7 +35,7 @@ public class AjaxAction extends Action {
 
         userForm.resetform();
 
-     return null;
+        return null;
     }
 
 
