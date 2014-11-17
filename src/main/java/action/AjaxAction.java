@@ -28,12 +28,19 @@ public class AjaxAction extends Action {
         String address = userForm.getAddress();
         if(userForm.getId()!=null)    id = Long.valueOf(userForm.getId());
 
+
         System.out.printf("id : %s name :%s phone :%s address :%s\n", id, name, phone, address);
 
         if(id==0l) addUser(name, phone, address);
         else editUser(name, phone, address, id);
 
         userForm.resetform();
+
+        response.setContentType("text/text;charset=utf-8");
+        response.setHeader("cache-control", "no-cache");
+        PrintWriter out = response.getWriter();
+        out.println(Book.getTable(Book.getList()));
+        out.flush();
 
         return null;
     }

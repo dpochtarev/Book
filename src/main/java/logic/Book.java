@@ -47,7 +47,7 @@ public class Book {
         
     String table = null;
        if(list!=null) {
-           table="<table border=\"1\"> <font SIZE=\"12\"><tr><td>Name</td><td>Phone</td><td>Address</td></tr></font>";
+           table="<table align=\"center\"> <font SIZE=\"12\"><tr><td>Name</td><td>Phone</td><td>Address</td></tr></font>";
            for(User user:list){
                table = String.format("%s<tr><td>%s</td><td>%s</td><td>%s</td></tr>", table, user.getName(), user.getPhone(), user.getAddress());
            }
