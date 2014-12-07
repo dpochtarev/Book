@@ -34,6 +34,9 @@
                 name="UserForm"
                 input="index.jsp"
                 type="action.AjaxAction">
+            <forward name="users" path="/users.jsp" />
+            <forward name="main" path="/index.jsp" />
+
         </action>
 
         <action path="/editUser"

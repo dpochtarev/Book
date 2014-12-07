@@ -46,10 +46,13 @@ public class Book {
    public static String getTable(List<User> list){
         
     String table = null;
+       String btn = "";
        if(list!=null) {
-           table="<table align=\"center\"> <font SIZE=\"12\"><tr><td>Name</td><td>Phone</td><td>Address</td></tr></font>";
+//           table="<table align=\"center\"> <font SIZE=\"12\"><tr><td>Name</td><td>Phone</td><td>Address</td><td></td></tr></font>";
            for(User user:list){
-               table = String.format("%s<tr><td>%s</td><td>%s</td><td>%s</td></tr>", table, user.getName(), user.getPhone(), user.getAddress());
+//               System.out.printf("<input type=\"button\" onClick=\"edit(%s, %s, %s, %s)\" value=\"edit\" />", user.getId(), user.getName(), user.getPhone(), user.getAddress());
+//               btn = String.format("<input type=\"button\" onClick=\"edit(%s, %s, %s, %s)\" value=\"edit\" />", user.getId(), user.getName(), user.getPhone(), user.getAddress());
+               table = String.format("%s<tr><td>%s</td><td>%s</td><td>%s</td><td></td></tr>", table, user.getName(), user.getPhone(), user.getAddress());
            }
           table = String.format("%s</table>", table);
        }
