@@ -19,20 +19,21 @@ public class EditUser extends Action {
 
 
         Long id = Long.valueOf(request.getParameter("id"));
-        boolean edit = Boolean.valueOf(request.getParameter("edit"));
+//        boolean edit = Boolean.valueOf(request.getParameter("edit"));
         User user = Book.getInstance().getUserDAO().getUserById(id);
-        UserForm userForm = (UserForm)form;
-        if(edit){
-
-            userForm.setName(user.getName());
-            userForm.setPhone(user.getPhone());
-            userForm.setAddress(user.getAddress());
-            userForm.setId(user.getId());
-        }
-        else{
+//        UserForm userForm = (UserForm)form;
+//        if(edit){
+//
+//            userForm.setName(user.getName());
+//            userForm.setPhone(user.getPhone());
+//            userForm.setAddress(user.getAddress());
+//            userForm.setId(user.getId());
+//        }
+//        else{
             Book.getInstance().getUserDAO().deleteUser(user);
-            userForm.resetform();
-        }
+        request.getSession().setAttribute("List", Book.getList());
+
+
         return mapping.findForward("success");
     }
 

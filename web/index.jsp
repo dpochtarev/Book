@@ -25,24 +25,51 @@
                 var name = $('#name').val(name);
             }
         }
-        function find(str) {
+
+        function del(id) {
+
+            $.ajax({
+                type: "POST",
+                url: "/Book/editUser.do",
+                data: {id: id},
+                success: function(){
+                    // we have the response
+                    $('#table').load("users.jsp");
+                },
+                error: function(e){
+                    alert('Error: ' + e);
+                }
+            })
 
         }
 
-        function postData(action)
-        {
-            if(action=="add") addUser('add');
-            else find("find");
+        function find() {
+             var str = $('#sname').val();
+
+            $.ajax({
+                type: "POST",
+                url: "/Book/viewAction.do",
+                data: {str: str},
+                success: function(){
+                    // we have the response
+                    $('#table').load("users.jsp");
+                },
+                error: function(e){
+                    alert('Error: ' + e);
+                }
+            })
+
+
+            $('#SearchForm').trigger('reset');
+
         }
 
-          function addUser(add) {
+        function postData()  {
 
-              if(add == 'add') {
             var id = $('#id').val();
             var phone = $('#phone').val();
             var address = $('#address').val();
             var name = $('#name').val();
-            console.log($('UserForm').serialize());
 
             $.ajax({
                 type: "POST",
@@ -55,24 +82,8 @@
                 error: function(e){
                     alert('Error: ' + e);
                 }
-            })}
-            else {
-                 console.log("done");
-                var str = $('#sname').val();
-                  $.ajax({
-                      type: "POST",
-                      url: "/Book/ajaxAction.do",
-                      data: {str: str},
-                      success: function(response){
-                          // we have the response
-                          $('#table').html(response);
-                      },
-                      error: function(e){
-                          alert('Error: ' + e);
-                      }
-                  })
+            })
 
-            }
 
               $('#UserForm').trigger('reset');
         }
@@ -97,14 +108,14 @@
         <tr><td>   Enter user name </td><td> <html:text styleId="name" size="26" name="UserForm" property="name" />  </td></tr>
         <tr><td>    Enter phone number </td><td><html:text styleId="phone" size="26" name="UserForm" property="phone" />      </td></tr>
         <tr><td>   Enter user address </td><td> <html:text styleId="address" size="26" name="UserForm" property="address" />  </td></tr>
-        <tr><th colspan="2">              <input type="button" onClick="postData('add')" style="width:100%" value="Submit" />
+        <tr><th colspan="2">              <input type="button" onClick="postData()" style="width:100%" value="Submit" />
 
             </html:form>
 
 
-            <html:form action="/viewAction">
+            <html:form styleId="SearchForm" action="/viewAction">
         <tr><td>Enter user name</td><td><html:text size="26" name="SearchForm" styleId="sname"  property="str"/></td></tr>
-        <tr><th colspan="2"> <html:submit style="width:100%" value="Search" /> </th></tr>
+        <tr><th colspan="2">  <input type="button" onClick="find()" style="width:100%" value="Search" /> </th></tr>
 
         </html:form>
 

@@ -20,7 +20,6 @@ public class AjaxAction extends Action {
                                  HttpServletRequest request,HttpServletResponse response)
             throws Exception {
 
-        boolean redirect = false;
         UserForm userForm =(UserForm) form;
 
         Long id=0l;
@@ -43,12 +42,10 @@ public class AjaxAction extends Action {
 //        System.out.println(Book.getTable(Book.getList()));
 //        out.println(Book.getTable(Book.getList()));
 //        out.flush();
-        request.setAttribute("List", Book.getList());
-        System.out.println("list = " + Book.getList());
+        request.getSession().setAttribute("List", Book.getList());
 
         return mapping.findForward("users");
 
-//        return mapping.findForward("main");
     }
 
 

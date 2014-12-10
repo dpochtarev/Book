@@ -18,26 +18,37 @@ public class ViewAction extends Action {
     
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
 
-        if(form!=null)  {
-        SearchForm searchForm = (SearchForm)form;
+        if(form!=null) {
+            SearchForm searchForm = (SearchForm) form;
             String str = searchForm.getStr();
-        if(str!=null && !"".equals(str)) {
+            if (str != null && !"".equals(str)) {
 
-            try{
-            List<User> list = Book.getInstance().getUserDAO().searchUsers(str);
-            request.setAttribute("List", list);
-            searchForm.resetForm();
-            } catch (Exception e) {e.printStackTrace();}
+                try {
+                    List<User> list = Book.getInstance().getUserDAO().searchUsers(str);
+//                    request.setAttribute("List", list);
+                    request.getSession().setAttribute("List", list);
 
-        }  else {
-            
-        request.setAttribute("List", (Book.getList()));
+                    searchForm.resetForm();
+                    return  mapping.findForward("users");
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            } else
+                request.getSession().setAttribute("List", Book.getList());
+
+            request.setAttribute("List", Book.getList());
+
+
+        } else
+
+            request.setAttribute("List", (Book.getList()));
+
+
+            return mapping.findForward("success");
         }
-        }  else
-        request.setAttribute("List", (Book.getList()));
-
-
-        return mapping.findForward("success");
     }
     
-}
+

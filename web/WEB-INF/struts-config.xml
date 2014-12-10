@@ -28,11 +28,12 @@
                 name="SearchForm"
                 cancellable="true">
             <forward name="success" path="/index.jsp" />
+            <forward name="users" path="/users.jsp" />
+
         </action>
 
         <action path="/ajaxAction"
                 name="UserForm"
-                input="index.jsp"
                 type="action.AjaxAction">
             <forward name="users" path="/users.jsp" />
             <forward name="main" path="/index.jsp" />
@@ -43,7 +44,7 @@
                 type="action.EditUser"
                 name="UserForm"
                 cancellable="true">
-            <forward name="success" path="/viewAction.do" />
+            <forward name="success" path="/users.jsp" />
 
         </action>
 

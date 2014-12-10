@@ -2,9 +2,11 @@
 <%@ page import="java.util.List" %>
 
 
-<%List<User> list = (List<User>)request.getAttribute("List"); %>
+<%--<%List<User> list = (List<User>)request.getAttribute("List"); %>--%>
 
- <%=list%>
+<%List<User> list = (List<User>)session.getAttribute("List"); %>
+
+
 
 <table align="center" cellspacing="5">
     <tr>
@@ -25,8 +27,9 @@
             </a></td>
         <td><%=user.getPhone()%></td>
         <td><%=user.getAddress()%></td>
-        <td><%String linkdel = request.getContextPath() + "/editUser.do?id=" + user.getId() + "&edit=false";%>
-            <a href=<# onclick="delete('<%=user.getId()%>')"> <img src="<%=request.getContextPath()%>/delete.png" width="15" height="15"> </a></td>
+        <td>
+        <%--<%String linkdel = request.getContextPath() + "/editUser.do?id=" + user.getId() + "&edit=false";%>&ndash;%&gt;--%>
+            <a href="#" onclick="del(<%=user.getId()%>)"> <img src="<%=request.getContextPath()%>/delete.png" width="15" height="15"> </a></td>
     </tr>
     <%}} %>
 
