@@ -8,6 +8,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import util.LuceneSearchUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,8 +17,10 @@ import java.sql.SQLException;
 
 public class AjaxAction extends Action {
 
-    public ActionForward execute(ActionMapping mapping,ActionForm form,
-                                 HttpServletRequest request,HttpServletResponse response)
+    public ActionForward execute(ActionMapping mapping,
+                                 ActionForm form,
+                                 HttpServletRequest request,
+                                 HttpServletResponse response)
             throws Exception {
 
         UserForm userForm =(UserForm) form;
@@ -27,7 +30,6 @@ public class AjaxAction extends Action {
         String phone = userForm.getPhone();
         String address = userForm.getAddress();
         if(userForm.getId()!=null)    id = Long.valueOf(userForm.getId());
-
 
         System.out.printf("id : %s name :%s phone :%s address :%s\n", id, name, phone, address);
 
@@ -55,7 +57,8 @@ public class AjaxAction extends Action {
             User user = new User(name, phone, address);
             try{
                 Book.getInstance().getUserDAO().addUser(user);
-            }catch (SQLException e) {
+                LuceneSearchUtil.getInstance().addDoc(user);
+            }catch (Exception e) {
                 e.printStackTrace();
             }   }
     }
@@ -65,7 +68,8 @@ public class AjaxAction extends Action {
             User user = new User(name, phone, address, id);
             try{
                 Book.getInstance().getUserDAO().updateUser(id, user);
-            }catch (SQLException e) {
+                LuceneSearchUtil.getInstance().reindex(user);
+            }catch (Exception e) {
                 e.printStackTrace();
             }   }
     }
