@@ -19,10 +19,9 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.store.RAMDirectory;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.util.ArrayList;
 
 public class LuceneSearchUtil {
@@ -30,7 +29,9 @@ public class LuceneSearchUtil {
     private static IndexWriter writer = instance.writer;
     private LuceneSearchUtil(){
         try {
-            Directory directory = new RAMDirectory();
+//            Directory directory = new RAMDirectory();
+            Directory directory = FSDirectory.open(FileSystems.getDefault().getPath("/index"));
+            System.out.println(directory);
             IndexWriterConfig config = new IndexWriterConfig(new StopAnalyzer());
             writer = new IndexWriter(directory, config);
         } catch (IOException e) {
@@ -59,6 +60,7 @@ public class LuceneSearchUtil {
 
         // Now search the index:
         DirectoryReader ireader = DirectoryReader.open(writer.getDirectory());
+        System.out.println(ireader.getDocCount("search"));
         IndexSearcher isearcher = new IndexSearcher(ireader);
         // Parse a simple query that searches for "text":
         QueryParser parser = new QueryParser("search", analyzer);
