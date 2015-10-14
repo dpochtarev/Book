@@ -1,5 +1,5 @@
 package book;
-
+@Deprecated
 public class Userdata {
     String name;
     String address;

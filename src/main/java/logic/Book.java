@@ -2,7 +2,10 @@ package logic;
 import DAO.Impl.UserDAOImpl;
 import DAO.UserDAO;
 import book.User;
+import util.LuceneSearchUtil;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -28,7 +31,20 @@ public class Book {
         return userDAO;
     }
 
+    public void addUser(User user) throws SQLException, IOException {
+        Book.getInstance().getUserDAO().addUser(user);
+        LuceneSearchUtil.getInstance().addDoc(user);
+    }
 
+    public void editUser(Long id,User user) throws SQLException, IOException {
+        Book.getInstance().getUserDAO().updateUser(id, user);
+        LuceneSearchUtil.getInstance().reindex(user);
+    }
+
+    public void deleteUser(User user) throws SQLException, IOException {
+        Book.getInstance().getUserDAO().deleteUser(user);
+        LuceneSearchUtil.getInstance().delete(user);
+    }
 
    public static List<User> getList() {
 
@@ -43,6 +59,7 @@ public class Book {
       return list;
    }
 
+   @Deprecated
    public static String getTable(List<User> list){
         
     String table = null;

@@ -13,7 +13,7 @@ import util.LuceneSearchUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-
+@Deprecated
 public class AddUser extends Action {
 
     public ActionForward execute(ActionMapping mapping,ActionForm form,

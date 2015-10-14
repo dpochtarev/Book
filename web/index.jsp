@@ -27,11 +27,10 @@
         }
 
         function del(id) {
-
             $.ajax({
                 type: "POST",
-                url: "/Book/editUser.do",
-                data: {id: id},
+                url: "/Book/ajaxAction.do",
+                data: {id: id, del: true},
                 success: function(){
                     // we have the response
                     $('#table').load("users.jsp");
@@ -40,7 +39,6 @@
                     alert('Error: ' + e);
                 }
             })
-
         }
 
         function find() {

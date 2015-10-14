@@ -1,6 +1,6 @@
 package book;
 import java.sql.*;
-
+@Deprecated
 public class JdbcHandler {
 
    static String user = "sa";//Логин пользователя

@@ -14,8 +14,8 @@ public class LuceneSearchUtilTest {
         LuceneSearchUtil su = LuceneSearchUtil.getInstance();
         su.addDoc(user);
         su.addDoc(user1);
-        System.out.println(su.search("vas"));
+        for (User u:su.search("vasa")){
+            System.out.println(u.getName()+" "+u.getAddress());
+        }
     }
-
-
 }

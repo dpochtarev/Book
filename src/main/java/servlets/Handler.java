@@ -1,9 +1,6 @@
 package servlets;
-
-
 import book.User;
 import logic.Book;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+@Deprecated
 public class Handler extends HttpServlet{
 
 

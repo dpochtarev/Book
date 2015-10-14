@@ -8,10 +8,11 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import util.LuceneSearchUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@Deprecated
 public class EditUser extends Action {
     public ActionForward execute(ActionMapping mapping,ActionForm form,
                                  HttpServletRequest request,HttpServletResponse response)
@@ -23,17 +24,14 @@ public class EditUser extends Action {
         User user = Book.getInstance().getUserDAO().getUserById(id);
 //        UserForm userForm = (UserForm)form;
 //        if(edit){
-//
 //            userForm.setName(user.getName());
 //            userForm.setPhone(user.getPhone());
 //            userForm.setAddress(user.getAddress());
 //            userForm.setId(user.getId());
 //        }
 //        else{
-            Book.getInstance().getUserDAO().deleteUser(user);
+            Book.getInstance().deleteUser(user);
         request.getSession().setAttribute("List", Book.getList());
-
-
         return mapping.findForward("success");
     }
 
