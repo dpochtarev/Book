@@ -16,11 +16,10 @@ public class Book {
     private static List<User> list = null;
 
     public static synchronized Book getInstance(){
-
         if(instance==null) {
             instance = new Book();
         }
-     return instance;
+        return instance;
     }
 
     public UserDAO getUserDAO(){

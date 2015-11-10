@@ -13,7 +13,6 @@ import util.LuceneSearchUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 public class AjaxAction extends Action {
@@ -52,7 +51,7 @@ public class AjaxAction extends Action {
 //        out.println(Book.getTable(Book.getList()));
 //        out.flush();
         }
-            request.getSession().setAttribute("List", LuceneSearchUtil.getInstance().search(""));
+        request.getSession().setAttribute("List", LuceneSearchUtil.getInstance().search(""));
 
         return mapping.findForward("users");
 
@@ -75,8 +74,8 @@ public class AjaxAction extends Action {
             // Записываю изменения в базу.
             User user = new User(name, phone, address, id);
             try{
-              Book.getInstance().editUser(id, user);
-              }catch (Exception e) {
+                Book.getInstance().editUser(id, user);
+            }catch (Exception e) {
                 e.printStackTrace();
             }   }
     }

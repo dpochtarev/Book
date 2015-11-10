@@ -1,5 +1,5 @@
 
-<%@ page contentType="text/html;charset=windows-1251" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib prefix="bean" uri="http://struts.apache.org/tags-bean" %>
 
@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>Справочник</title>
+    <title>РЎРїСЂР°РІРѕС‡РЅРёРє</title>
 
 
 

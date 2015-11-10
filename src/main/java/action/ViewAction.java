@@ -3,7 +3,6 @@ package action;
 
 import book.User;
 import form.SearchForm;
-import logic.Book;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -14,7 +13,6 @@ import util.LuceneSearchUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewAction extends Action {
@@ -29,13 +27,11 @@ public class ViewAction extends Action {
             SearchForm searchForm = (SearchForm) form;
             String str = searchForm.getStr();
             if (str != null ) {
-
                 try {
-                    List<User> list = instance.search(str);
 //                    List<User> list = Book.getInstance().getUserDAO().searchUsers(str);
 //                    request.setAttribute("List", list);
+                    List<User> list = instance.search(str);
                     request.getSession().setAttribute("List", list);
-
                     searchForm.resetForm();
                     return  mapping.findForward("users");
                 } catch (Exception e) {
@@ -46,7 +42,7 @@ public class ViewAction extends Action {
 //                request.setAttribute("List", instance.search(""));
         } else
             request.getSession().setAttribute("List", instance.search(""));
-         return mapping.findForward("success");
+        return mapping.findForward("success");
     }
 }
     

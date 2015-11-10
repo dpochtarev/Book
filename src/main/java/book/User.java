@@ -2,6 +2,10 @@ package book;
 
 
 public class User {
+
+    private Long id;
+    private String name, phone, address;
+
     @Override
     public String toString() {
         return "User{" +
@@ -11,10 +15,6 @@ public class User {
                 ", address='" + address + '\'' +
                 '}';
     }
-
-    private Long id;
-    private String name, phone, address;
-
 
     public void setId(Long id) {
         this.id = id;

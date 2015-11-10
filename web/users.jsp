@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ page import="book.User" %>
 <%@ page import="java.util.List" %>
 
